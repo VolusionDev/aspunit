@@ -34,12 +34,12 @@
 
 	Function BalanceAfterDeposit()
 		Call objAccount.Deposit(50)
-		Call ASPUnit.Equal(objAccount.Balance, 50, "Balance should increase by specified amount")
+		Call ASPUnit.AreEqual(objAccount.Balance, 50, "Balance should increase by specified amount")
 	End Function
 
 	Function BalanceAfterWithdrawal()
 		Call objAccount.Deposit(100)
 		Call objAccount.Withdraw(50)
-		Call ASPUnit.Equal(objAccount.Balance, 50, "Balance should decrease by specified amount")
+		Call ASPUnit.AreEqual(objAccount.Balance, 50, "Balance should decrease by specified amount")
 	End Function
 %>

@@ -57,33 +57,33 @@
 
 	Function SourceBalanceAfterTransfer()
 		Call objService.Transfer(objSource, objDestination, 50)
-		Call ASPUnit.Equal(objSource.Balance, 50, "Source balance should decrease by specified transfer amount")
+		Call ASPUnit.AreEqual(objSource.Balance, 50, "Source balance should decrease by specified transfer amount")
 	End Function
 
 	' Intentional fail
 	Function DestinationBalanceAfterTransfer()
 		Call objService.Transfer(objSource, objDestination, 50)
-		Call ASPUnit.Equal(objDestination.Balance, 151, "Destination balance should increase by specified transfer amount")
+		Call ASPUnit.AreEqual(objDestination.Balance, 151, "Destination balance should increase by specified transfer amount")
 	End Function
 
 	Function TransferWithInsufficientFundsRaisesError()
 		On Error Resume Next
 		Call objService.Transfer(objSource, objDestination, 95)
-		Call ASPUnit.NotEqual(Err.Number, 0, "Transfer with insufficient funds should raise an error")
+		Call ASPUnit.AreNotEqual(Err.Number, 0, "Transfer with insufficient funds should raise an error")
 		On Error Goto 0
 	End Function
 
 	Function SourceBalanceAfterTransferWithInsufficientFunds()
 		On Error Resume Next
 		Call objService.Transfer(objSource, objDestination, 95)
-		Call ASPUnit.Equal(objSource.Balance, 100, "Transfer with insufficient funds should leave source balance unchanged")
+		Call ASPUnit.AreEqual(objSource.Balance, 100, "Transfer with insufficient funds should leave source balance unchanged")
 		On Error Goto 0
 	End Function
 
 	Function DestinationBalanceAfterTransferWithInsufficientFunds()
 		On Error Resume Next
 		Call objService.Transfer(objSource, objDestination, 95)
-		Call ASPUnit.Equal(objDestination.Balance, 100, "Transfer with insufficient funds should leave destination balance unchanged")
+		Call ASPUnit.AreEqual(objDestination.Balance, 100, "Transfer with insufficient funds should leave destination balance unchanged")
 		On Error Goto 0
 	End Function
 %>
