@@ -72,7 +72,7 @@
 		End Function
         
 		Public Function IsFalse(blnResult, strDescription)
-			Call Not (m_Tester.Ok(blnResult, strDescription))
+			Call m_Tester.Ok(Not blnResult, strDescription)
 		End Function
 
 		Public Function AreEqual(varActual, varExpected, strDescription)
