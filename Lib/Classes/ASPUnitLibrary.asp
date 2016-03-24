@@ -67,23 +67,27 @@
 			Call m_Tester.AddModules(arrModules)
 		End Sub
 
-		Public Function Ok(blnResult, strDescription)
+		Public Function IsTrue(blnResult, strDescription)
 			Call m_Tester.Ok(blnResult, strDescription)
 		End Function
+        
+		Public Function IsFalse(blnResult, strDescription)
+			Call Not (m_Tester.Ok(blnResult, strDescription))
+		End Function
 
-		Public Function Equal(varActual, varExpected, strDescription)
+		Public Function AreEqual(varActual, varExpected, strDescription)
 			Call m_Tester.Equal(varActual, varExpected, strDescription)
 		End Function
 
-		Public Function NotEqual(varActual, varExpected, strDescription)
+		Public Function AreNotEqual(varActual, varExpected, strDescription)
 			Call m_Tester.NotEqual(varActual, varExpected, strDescription)
 		End Function
 
-		Public Function Same(varActual, varExpected, strDescription)
+		Public Function AreSame(varActual, varExpected, strDescription)
 			Call m_Tester.Same(varActual, varExpected, strDescription)
 		End Function
 
-		Public Function NotSame(varActual, varExpected, strDescription)
+		Public Function AreNotSame(varActual, varExpected, strDescription)
 			Call m_Tester.NotSame(varActual, varExpected, strDescription)
 		End Function
 
